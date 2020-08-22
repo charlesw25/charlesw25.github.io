@@ -2,239 +2,245 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charles Wood</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='http://fonts.googleapis.com/css?family=Recursive' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<section class="home" id="home">
-    <header>
-        <div class="menu-button">
-            <div class="top-bar"></div>
-            <div class="middle-bar"></div>
-            <div class="bottom-bar"></div>
-        </div>
-        <nav class="top-nav">
-            <div class="nav-bg"></div>
-            <ul class="nav-list">
-                <li>
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li>
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </nav>
-
-        <div class="name-text" data-aos="fade-right">
-            <h1>Charles Wood</h1>
-            <h4>Aspiring Programmer and Software Developer</h4>
-            <div class="resume">
-
-                    <a href="https://drive.google.com/file/d/1aRB61xbvI03QNuXDvmZ9rySFRdwRtL08/view?usp=sharing" class="resume-link" target="_blank">
-                        <i class="far fa-file"></i>
-                        Resume
-                    </a>
-
-            </div>
-        </div>
-
-    </header>
-</section>
-
-
-    <section class="about" id="about">
-        <div class="container">
-            <div class="profile-pic" data-aos="fade-right">
-                <img src="images/pfp.png" alt="">
-            </div>
-            <div class="about-details" data-aos="fade-left">
-                <div class="section-heading">
-                    <h1>About</h1>
-                    <h4>Me</h4>
+    <!-- Header -->
+    <section class="home" id="home">
+      <!-- Main-menu Navbar -->
+      <header class="header_area">
+        <div class="main-menu">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="mr-auto"></div>
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#work">Past Work</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                  </ul>
                 </div>
-                <p>
-                    I am a third year student at the University At Buffalo pursuing a B.S. in Computer Science.
-                    With a former Pre-Med background and a keen interest in Science, knowing about the components that make up our world
-                    and how they interact with each other drive me to learn more. With previous experience studying Chemistry,
-                    I like to draw parallels between Science and Technology alongside how we can improve and learn from the two.
-                </p>
-                <div class="social-details">
-                    <ul class="nav-list">
-                        <li>
-                            <a href="https://github.com/charlesw25" class="icon-link" target="_blank">
-                                <i class="fab fa-github-square"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/charles-wood-b8182b179/" class="icon-link" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+              </nav>
+        </div>
+
+        <!-- Banner -->
+        <div class="banner">
+            <div class="ban-body">
+              <h2>Charles Wood <span class="type"></span></h1>
+              <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a href="https://github.com/charlesw25" class="icon-link" target="_blank">
+                    <i class="fab fa-github-square"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.linkedin.com/in/charles-wood-b8182b179/" class="icon-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="ban-footer">
+              <a class="link" href="https://drive.google.com/file/d/1aRB61xbvI03QNuXDvmZ9rySFRdwRtL08/view" class="icon-link" target="_blank">
+                <i class="far fa-file"></i> Resume <br>
+              </a>
+              <span class="ban-arrow">
+                <a class="nav-link" href="#portfolio">&#8595;</a>
+              </span>
             </div>
         </div>
+      </header>
     </section>
 
+    <!-- Portolio -->
     <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-heading" data-aos="fade-down">
-                <h1>Portfolio</h1>
-                <h4>See some of my recent work</h4>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-description has-right-margin" data-aos="fade-right">
-                    <div class="lang-container">
-                        <i class="fab fa-python" data-toggle="tooltip" data-placement="top" title="Python"></i>
-                        <i class="fas fa-layer-group" data-toggle="tooltip" data-placement="top" title="Scala"></i>
-                    </div>
-                    <h4>Functional Programming</h4>
-                    <h1>Rhyming Dictionary</h1>
-                    <p>
-                        Written both in Scala and Python as two different applications, this program
-                        is performed by use of a separate pronunciation dictionary. This pronunciation dictionary contains
-                        both words and the sounds that make up each word. By taking note of which sounds have vowels
-                        and the stress given to said vowels (represented as an integer), rhymes for a given word can be found
-                        easily and efficiently as long as the word is in the pronunciation dictionary itself.
-                    </p>
-                </div>
-                <div class="portfolio-img" data-aos="fade-left">
-                    <a href="https://github.com/charlesw25/Rhyming-Dictionary" target="_blank">View on GitHub</a>
-                    <img src="images/RhymingDict.jpg" alt="">
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img" data-aos="fade-right">
-                    <a href="https://github.com/charlesw25/Buffalo-Parking-Ticket-API-Data" target="_blank">View on GitHub</a>
-                    <img src="images/TicketAPICode.jpg" alt="">
-                </div>
-                <div class="portfolio-description has-left-margin" data-aos="fade-left">
-                    <div class="lang-container">
-                        <i class="fas fa-file-code" data-toggle="tooltip" data-placement="top" title="HTML"></i>
-                        <i class="fab fa-js" data-toggle="tooltip" data-placement="top" title="JavaScript"></i>
-                        <i class="fab fa-python" data-toggle="tooltip" data-placement="top" title="Python"></i>
-                    </div>
-                    <h4>Web API</h4>
-                    <h1>Parking Ticket Data</h1>
-                    <p>
-                        A deployable web application that shows and marks the most recent parking tickets handed out in
-                        the city of Buffalo. By using an interactable map and the Buffalo Parking Ticket API, hovering over
-                        any point on the map displays the date, time, and violation description of that specific incident.
-                        Data is collected and parsed from the API via the Python web-framework Bottle, where the
-                        the information (kept in a JSON string) is then used to display coordinates on a graph through
-                        JavaScript using the Plotly library.
-                    </p>
-
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-description has-right-margin" data-aos="fade-right">
-                    <div class="lang-container">
-                        <i class="fas fa-layer-group" data-toggle="tooltip" data-placement="top" title="Scala"></i>
-                    </div>
-                    <h4>Functional Programming</h4>
-                    <h1>Genetic Algorithm</h1>
-                    <p>
-                        This project functions as a generic genetic algorithm, which can find approximate solutions to
-                        optimization problems. The algorithm also utilizes polymorphism in order to be reused for any
-                        application that fits the criteria of a genetic algorithm solution. The genetic algorithm also
-                        supports both linear and polynomial regression (but only up to a polynomial degree of two).
-                        [Currently in Progress]
-                    </p>
-                </div>
-                <div class="portfolio-img" data-aos="fade-left">
-                    <a href="" target="_blank">
-                        View on GitHub <br>[Unavailable]
-                    </a>
-                    <img src="images/GenAlgo1.jpg" alt="">
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img" data-aos="fade-right">
-                    <a href="https://github.com/charlesw25/NuggetTycoon" target="_blank">View on GitHub</a>
-                    <img src="images/TycoonProj2.jpg" alt="">
-                </div>
-                <div class="portfolio-description has-left-margin" data-aos="fade-left">
-                    <div class="lang-container">
-                        <i class="fas fa-layer-group" data-toggle="tooltip" data-placement="top" title="Scala"></i>
-                    </div>
-                    <h4>Object Oriented</h4>
-                    <h1>Tycoon Game</h1>
-                    <p>
-                        An untitled Tycoon game made in Scala using the ScalaFX library. Complete with its own
-                        Physics engine calculating player movement and detecting collision, the premise of the game is
-                        similar to "Clicker" or "Incremental" games where the purpose is to collect a certain resource.
-                        The twist however, is that you have a player that moves and collects resources, and the
-                        facilities that can be built are also represented as sprites.
-                    </p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-heading">
+          <h1>Portfolio</h1>
         </div>
+
+        <div class="portfolio-item">
+          <div class="p-item">
+            <div class="lang-container">
+              <i class="fab fa-python" data-toggle="tooltip" data-placement="top" title="Python"></i>
+              <i class="fas fa-layer-group" data-toggle="tooltip" data-placement="top" title="Scala"></i>
+            </div>
+            <h4>Functional Programming</h4>
+            <h1>Rhyming Dictionary</h1>
+            <p>
+              Written both in Scala and Python as two different applications, this program
+              is performed by use of a separate pronunciation dictionary. This pronunciation dictionary contains
+              both words and the sounds that make up each word. By taking note of which sounds have vowels
+              and the stress given to said vowels (represented as an integer), rhymes for a given word can be found
+              easily and efficiently as long as the word is in the pronunciation dictionary itself.
+            </p>
+          </div>
+          <div class="portfolio-img">
+            <a href="https://github.com/charlesw25/Rhyming-Dictionary" target="_blank">View on GitHub</a>
+            <img src="images/port_img_1.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="p-item">
+            <div class="lang-container">
+              <i class="fas fa-file-code" data-toggle="tooltip" data-placement="top" title="HTML / CSS"></i>
+              <i class="fab fa-js" data-toggle="tooltip" data-placement="top" title="JavaScript"></i>
+              <i class="fab fa-python" data-toggle="tooltip" data-placement="top" title="Python"></i>
+            </div>
+            <h4>Web Api</h4>
+            <h1>Parking Ticket Data</h1>
+            <p>
+              A deployable web application that shows and marks the most recent parking tickets handed out in
+              the city of Buffalo. By using an interactable map and the Buffalo Parking Ticket API, hovering over
+              any point on the map displays the date, time, and violation description of that specific incident.
+              Data is collected and parsed from the API via the Python web-framework Bottle, where the
+              the information (kept in a JSON string) is then used to display coordinates on a graph through
+              JavaScript using the Plotly library.
+            </p>
+          </div>
+          <div class="portfolio-img">
+            <a href="https://github.com/charlesw25/Rhyming-Dictionary" target="_blank">View on GitHub</a>
+            <img src="images/port_img_2.jpg" alt="">
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="p-item">
+            <div class="lang-container">
+              <i class="fas fa-file-code" data-toggle="tooltip" data-placement="top" title="HTML / CSS"></i>
+              <i class="fab fa-js" data-toggle="tooltip" data-placement="top" title="JavaScript"></i>
+            </div>
+            <h4>Web App</h4>
+            <h1>Personal Website</h1>
+            <p>
+              The website you're looking at right now is another project of mine. Built from the ground-up using
+              standard HTML/CSS/JS &mdash; along with the help of libraries and frameworks such as Bootstrap and 
+              typed.js &mdash; this website serves as a way to customize and showcase my little corner of the internet.
+            </p>
+          </div>
+          <div class="portfolio-img">
+            <a href="https://github.com/charlesw25/Rhyming-Dictionary" target="_blank">View on GitHub</a>
+            <img src="images/port_img_3.jpg" alt="">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="experience" id="experience">
-        <div class="container">
-            <div class="section-heading" data-aos="fade-down">
-                <h1>Prior Experience</h1>
-                <h4>Some of the places I worked at</h4>
-            </div>
-            <div class="timeline" data-aos="fade-right">
-                <ul>
-                    <li class="date" data-of-date="Feb 2017 - May 2017">
-                        <h1>Tutor</h1>
-                        <h6>Mathematics Academic Momentum Tutoring Program at Brooklyn College</h6>
-                        <p>
-                            Tutored Brooklyn College students of various backgrounds, ages, and majors both
-                            in Pre-Calculus and Calculus concepts and applications.
-                        </p>
-                    </li>
-                    <li class="date" data-of-date="Dec 2016 - Feb 2017">
-                        <h1>Receptionist</h1>
-                        <h6>Sheepshead Bay Veterinary Group</h6>
-                        <p>
-                            Assisted both clients and their owners through scheduling and managing appointments
-                            along with managing stock and taking orders to ensure customer satisfaction.
-                        </p>
-                    </li>
-                </ul>
-            </div>
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h1>About Me</h1>
         </div>
+        <div class="section-details">
+          <p>
+            I am a fourth-year student at the University At Buffalo finishing up a B.S. in Computer Science.
+            With a strong desire to create and share with the world, I took up programming as I believe it is
+            one of the many great ways to express yourself. The ability to create and cater a project from your fingertips
+            fascinates me, and I always want to try and explore different avenues of doing so.
+          </p>
+          <p>
+            Given the ever-growing need of technologies, I firmly believe the demand of thinking creatively and out of the box is more
+            important than ever. That is why I think it is important to stand out and find ways to challenge your boundaries - as no
+            substantial change has ever been made by sticking to the same conventions.
+          </p>
+        </div>
+      </div>
     </section>
 
+    <!-- Work -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Prior Experience</h1>
+        </div>
+
+        <div class="timeline">
+          <ul>
+            <li class="date" data-of-date="Sep 2019 - Present">
+              <h1>Teaching Assistant</h1>
+              <h4>University at Buffalo</h4>
+              <p>
+                Currently an undergraduate teaching assistant for university's introductory computer science
+                course. Led two lab sections, totaling at most 60 students where I taught and facilitated key concepts
+                such as Object Oriented Programming, Functional Programming, and Data Structures.
+              </p>
+            </li>
+            <li class="date" data-of-date="Jul 2019 - Aug 2020">
+              <h1>Research Assistant</h1>
+              <h4>University at Buffalo</h4>
+              <p>
+                  Formally worked as a research assistant, being involved in two different projects that focused
+                  on Network Entropies and Combinatorial Optimization. Work involved extensive studying of code and
+                  frameworks, alongside testing models and comparing results for futher analysis.
+              </p>
+            </li>
+            <li class="date" data-of-date="Feb 2017 - May 2017">
+              <h1>Tutor</h1>
+              <h4>Mathematics Academic Momentum Tutoring Program at Brooklyn College</h4>
+              <p>
+                Tutored Brooklyn College students of various backgrounds, ages, and majors both
+                in Pre-Calculus and Calculus concepts and applications.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
     <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-heading" data-aos="fade-down">
-                <h1>Contact Me</h1>
-                <h4>[ Currently Under Construction ]</h4>
-            </div>
-            <div class="contact-form" data-aos="fade-up">
-                <form action="contact-handler.php" id="contact-form" method="post">
-                    <input type="text" name="name" class="form-control" placeholder="Name" required>
-                    <input type="text" name="email" class="form-control" placeholder="Email" required>
-                    <textarea name="message" class="form-control" placeholder="Message" cols="30" rows="10" required></textarea>
-                    <input type="submit" class="form-control submit" value="Send">
-                </form>
-            </div>
+      <div class="container">
+        <div class="section-heading">
+          <h1>Contact Me</h1>
         </div>
+      </div>
+      <div class="contact-form">
+        <form class="contact-form" action="contact-handler.php" id="contact-form" method="post">
+            <input type="text" name="name" class="form-control" placeholder="Name" required>
+            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+            <input type="text" name="email" class="form-control" placeholder="Email" required>
+            <textarea name="message" class="form-control" placeholder="Message" cols="30" rows="10" required></textarea>
+            <input type="submit" name="submit" class="form-control submit" value="Send">
+        </form>
+      </div>
     </section>
+    
     <footer>
+        <img src="images/signature.png" alt="">
         <p>&copy; 2020 Charles Wood</p>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- js imports -->
+    <script src="./js/jquery.3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-</body>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/typed.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="./js/typed.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+  
 </html>

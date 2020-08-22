@@ -1,23 +1,22 @@
 <?php
+if (isset($_POST['submit'])) {
     $name = $_POST['name'];
-    $visitor_email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $email_from = $_POST['email'];
     $message = $_POST['message'];
 
-    $email_from = 'testTutorial@chucc.com';
+    $email_to = "woodcharles544@gmail.com";
+    $headers = "Message from: " .$email_from;
+    $txt = "Someone from charlesw25.github.io sent you a message.\n\n" .$message;
+    $send = mail($email_to, $subject, $txt, $headers);
 
-    $email_subject = "New Form Submission";
+    if ($send) {
+        echo '<br>';
+        echo 'Thanks for reaching out. I will get back to you shortly.';
+    } else {
+        echo 'Error. Make sure all forms are properly filled out and try again later.';
+    }
 
-    $email_body = "User Name: $name.\n".
-                    "User Email: $visitor_email.\n".
-                    "User Message: $message.\n";
-
-    $to = "woodcharles544@gmail.com";
-
-    $headers = "From: $email_from \r\n";
-
-    $headers .= "Reply-To: $visitor_email \r\n";
-
-    mail($to,$email_subject,$email_body.$headers);
-
-    header("Location: index.html");
+    header("Location: charlesw25.github.io");
+}
 ?>
