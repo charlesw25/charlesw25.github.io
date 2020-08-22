@@ -6,7 +6,7 @@
 }
 
 html{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 body{
@@ -17,7 +17,7 @@ body{
 a{
     text-decoration: none;
     color: #FFF0F5;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 p{
@@ -110,14 +110,14 @@ header{
 }
 
 .header_area .main-menu .nav-item .nav-link{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     text-transform: uppercase;
     font-weight: 500;
 }
 
 /* Banner */
 .banner{
-    font-family: 'Recursive', sans-serif;
+    font-family: 'Recursive';
     background: #111111;
     text-align: center;
     padding: 23rem 1rem;
