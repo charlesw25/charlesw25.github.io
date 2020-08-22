@@ -110,14 +110,14 @@ header{
 }
 
 .header_area .main-menu .nav-item .nav-link{
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     text-transform: uppercase;
     font-weight: 500;
 }
 
 /* Banner */
 .banner{
-    font-family: Recursive;
+    font-family: Recursive, sans-serif;
     background: #111111;
     text-align: center;
     padding: 23rem 1rem;
