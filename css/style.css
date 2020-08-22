@@ -224,7 +224,7 @@ header{
     text-align: center;
     margin: 13rem 10rem;
     margin-top: 1rem;
-    color: whitesmoke;
+    color: #6f4f92;
     font-size: 3.5rem;
     z-index: 3;
     opacity: 0;
@@ -260,7 +260,7 @@ header{
 }
 
 .date::before{
-    content: "\2013"; /* en-dash */
+    content: ">";
     position: absolute;
     margin-left: -3rem;
     margin-top: -.5rem;

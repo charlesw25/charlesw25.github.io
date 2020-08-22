@@ -5,9 +5,9 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 var typed = new Typed(".type",{
         strings: [
         "is an aspiring programmer.", 
-        "is a creator.",
+        "loves to create.",
         "is a doer of things.",
-        "loves design."
+        "designs."
         ],
         typeSpeed: 60, 
         backSpeed: 60,
