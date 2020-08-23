@@ -223,13 +223,15 @@
         </div>
       </div>
       <div class="contact-form">
-        <form class="contact-form" action="contact-handler.php" id="contact-form" method="post">
-            <input type="text" name="name" class="form-control" placeholder="Name" required>
-            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-            <input type="text" name="email" class="form-control" placeholder="Email" required>
-            <textarea name="message" class="form-control" placeholder="Message" cols="30" rows="10" required></textarea>
+        <!-- https://docs.google.com/forms/d/e/1FAIpQLSeZ6mIoG-RakyBXxl5KlDPlA173wLzLrdyB2awUMT1EPwUW3w/viewform?usp=pp_url&entry.1375523026=garbageName&entry.1716268204=garbageSubject&entry.1519628830=garbageEmail&entry.1214621246=garbageMessage -->
+        <form class="contact-form" name="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeZ6mIoG-RakyBXxl5KlDPlA173wLzLrdyB2awUMT1EPwUW3w/formResponse?" id="contact-form" target="hidden_iframe" onsubmit="submitted=true;">
+            <input type="text" name="entry.1375523026" id="entry.1375523026" class="form-control" placeholder="Name" required>
+            <input type="text" name="entry.1716268204" id="entry.1716268204" class="form-control" placeholder="Subject" required>
+            <input type="text" name="entry.1519628830" id="entry.1519628830" class="form-control" placeholder="Email" required>
+            <textarea name="entry.1214621246" id="entry.1214621246" class="form-control" placeholder="Message" cols="30" rows="10" required></textarea>
             <input type="submit" name="submit" class="form-control submit" value="Send">
         </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
       </div>
     </section>
     

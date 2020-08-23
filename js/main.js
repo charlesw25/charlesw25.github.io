@@ -20,3 +20,8 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
+var submitted=false;
+$('#contact-form').on('submit', function(e) {
+  $('#contact-form *').hide();
+  $('#contact-form').append("Thank you for reaching out. I'll get back to you shortly!");
+});
