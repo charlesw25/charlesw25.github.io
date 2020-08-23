@@ -219,6 +219,7 @@ header{
         margin-right: 0;
         padding-right: 0;
     }
+    .banner .ban-body h2{ font-size: 3rem; }
     .ban-footer{ margin-bottom: -1.25rem; }
     .banner .ban-footer .ban-arrow { font-size: 2rem; }
     .banner .ban-footer .ban-text{ font-size: 1.5rem; }
