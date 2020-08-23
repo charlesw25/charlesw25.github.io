@@ -217,9 +217,19 @@ header{
     transition: filter 650ms;
 }
 
+.p-item a{
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio-img { display:none; }
+    .p-item a { display: grid; }
+}
+
 .portfolio-img img{
-    max-width: 500px;
-    max-height: 300px;
+    width: 475px;
+    height: 300px;
+    
 }
 
 .portfolio-img a{
@@ -267,7 +277,7 @@ header{
 .date::before{
     content: ">";
     position: absolute;
-    margin-left: -3rem;
+    margin-left: -1.75rem;
     margin-top: -.5rem;
     font-weight: 500;
     font-size: 2.5rem;
