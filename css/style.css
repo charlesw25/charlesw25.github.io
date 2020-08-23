@@ -219,6 +219,11 @@ header{
         margin-right: 0;
         padding-right: 0;
     }
+    .ban-footer{
+        bottom: 0rem;
+        transform: translateY(-25%);
+    }
+    .banner .ban-footer .ban-arrow{ font-size: 2rem; }
 }
 
 .portfolio-img img{
