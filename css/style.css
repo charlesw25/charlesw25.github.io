@@ -214,6 +214,11 @@ header{
 @media screen and (max-width: 768px) {
     .portfolio-img { display:none; }
     .p-item a { display: grid; }
+    .p-item p { 
+        max-width: 62000rem; 
+        margin-right: 0;
+        padding-right: 0;
+    }
 }
 
 .portfolio-img img{
