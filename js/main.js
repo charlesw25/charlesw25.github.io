@@ -4,10 +4,10 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 
 var typed = new Typed(".type",{
         strings: [
-        "is an aspiring programmer.", 
+        "is a programmer.", 
+        "designs.",
         "loves to create.",
-        "is a doer of things.",
-        "designs."
+        "is a doer of things."
         ],
         typeSpeed: 60, 
         backSpeed: 60,

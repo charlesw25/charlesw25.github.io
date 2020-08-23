@@ -171,7 +171,8 @@ header{
 }
 
 .section-details p{
-    width: 62%;
+    /* width: 62%; */
+    max-width: 62rem;
     transform: translateX(-4%);
     margin-bottom: 6rem;
 }
@@ -181,7 +182,6 @@ header{
 }
 
 /* Portfolio */
-
 .portfolio-item{
     transform: translateX(-3%);
     margin-bottom: 6rem;
@@ -193,6 +193,8 @@ header{
 
 .p-item{
     flex: 3;
+    width: 100%;
+    height: 100%;
 }
 
 .p-item h4{
@@ -202,6 +204,9 @@ header{
 
 .p-item p{
     padding-right: 10rem;
+    width: 100%;
+    margin-right: 10rem;
+    max-width: 70rem;
 }
 
 .portfolio-img{
@@ -213,9 +218,8 @@ header{
 }
 
 .portfolio-img img{
-    object-fit: cover;
-    width: 500px;
-    height: 300px;
+    max-width: 500px;
+    max-height: 300px;
 }
 
 .portfolio-img a{
@@ -246,7 +250,8 @@ header{
 
 /* Work Experience */
 .timeline{
-    width: 60%;
+    /* width: 60%; */
+    max-width: 60rem;
 }
 
 .date{
@@ -278,7 +283,8 @@ header{
 }
 
 .contact-form{
-    width: 55%;
+    /*width: 55%;*/
+    max-width: 30rem;
 }
 
 .form-control{
@@ -320,6 +326,10 @@ form .submit:hover{
 }
 
 /* Footer */
+footer{
+    margin-top: 7rem;
+}
+
 footer p{
     font-size: 1rem;
     text-align: right;
