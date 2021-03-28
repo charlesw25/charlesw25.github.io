@@ -1,0 +1,5 @@
+plugins:
+  - jekyll-feed
+title: Charles' Blog
+author: Charles Wood
+permalink: /:year/:month/:day/:title:output_ext
