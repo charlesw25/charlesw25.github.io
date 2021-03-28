@@ -3,3 +3,5 @@ plugins:
 title: Charles' Blog
 author: Charles Wood
 permalink: /:year/:month/:day/:title:output_ext
+baseurl: "/blog"
+github_username:  charlesw25
