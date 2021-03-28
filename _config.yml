@@ -2,6 +2,8 @@ plugins:
   - jekyll-feed
 title: Charles' Blog
 author: Charles Wood
+description: >- # this means to ignore newlines until "baseurl:"
+  Portfolio Website and Blog.
 permalink: /:year/:month/:day/:title:output_ext
-baseurl: "/blog"
 github_username:  charlesw25
+future: true
