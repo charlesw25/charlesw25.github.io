@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introduction to GDB (or How I Learned to Stop Worrying and Love the Debugger)
-date: 2021-03-27 21:00:00 -0700
+date: 2021-03-30
 category: post
 ---
 
