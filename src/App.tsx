@@ -24,7 +24,7 @@ function App() {
         <h1>
           charles wood
         </h1>
-        <h4>Software Engineer</h4>
+        <h4>Software Engineer based in NYC</h4>
         <Links />
       </header>
     </div>
