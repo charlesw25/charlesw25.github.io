@@ -16,16 +16,32 @@ function Links() {
   )
 }
 
+function About() {
+  return (
+    <section className="about-section">
+      <p className="about-text">
+        I love to build robust things that scale. I'm comfortable working
+        across the full stack, however my proudest work lives on the backend:
+        designing APIs, distributing workloads, and data flows that hold up under
+        load. I aim to write clean and performant code that is easy to maintain
+        as well as reduce manual overhead.
+      </p>
+      <p className="about-text about-tech">
+        Some technologies I work with include Python, AWS, PostgreSQL, React, and Redis.
+      </p>
+    </section>
+  );
+}
+
 function App() {
-  document.body.style.backgroundColor = "#F5F5F5"
+  document.body.style.backgroundColor = "#0f0f0f"
   return (
     <div className="App">
       <header className="App-header inter-main">
-        <h1>
-          charles wood
-        </h1>
+        <h1>charles wood</h1>
         <h4>Software Engineer based in NYC</h4>
         <Links />
+        <About />
       </header>
     </div>
   );
