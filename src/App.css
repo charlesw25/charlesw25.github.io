@@ -1,0 +1,81 @@
+.App {
+  text-align: left;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.inter-main {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* Choose value 100-900 */
+  font-style: normal;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.3rem;
+  color: #e2e2e2;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+}
+
+@media (min-width: 768px) {
+  .App-header {
+    padding-left: 15%;
+  }
+}
+
+
+
+.App ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.App h4 {
+  margin-top: -1.75rem;
+  margin-bottom: 1rem;
+  color: #777777;
+}
+
+.App li {
+  padding-bottom: .5rem;
+  font-size: 1.3rem;
+}
+
+.App a {
+  text-decoration: none; /* Remove underline */
+  color: inherit;        /* Inherit the text color from the parent element */
+  transition: text-decoration 0.3s ease;
+}
+
+.App a:hover {
+  text-decoration: underline;
+  opacity: 0.5;  /* Slightly faded on hover */
+}
+
+.about-section {
+  margin-top: 2.5rem;
+  max-width: 520px;
+}
+
+.about-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #aaaaaa;
+  line-height: 1.75;
+  margin: 0 0 1rem 0;
+}
+
+.about-tech {
+  font-style: italic;
+  color: #666666;
+}
