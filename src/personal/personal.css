@@ -11,9 +11,9 @@
   background: var(--p-bg);
   color: var(--p-fg);
   font-family: "DotGothic16", "Courier New", monospace;
-  font-size: 1.05rem;
+  font-size: 16px; /* DotGothic16 is drawn on a 16px grid; keep sizes on multiples of it */
   line-height: 1.6;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 .personal a {
@@ -33,9 +33,9 @@
 
 .p-banner {
   font-family: inherit;
-  font-size: 2.25rem;
+  font-size: 32px;
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 6px;
   text-transform: uppercase;
   margin: 1.5rem 0 0;
 }
@@ -45,11 +45,11 @@
 }
 
 .p-heading {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: normal;
   color: var(--p-dim);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 2px;
   margin: 0 0 1rem;
 }
 
@@ -83,7 +83,7 @@
 .p-tab {
   color: var(--p-dim);
   padding: 0.1rem 0.5rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 2px;
 }
 
 .p-tab-active,
@@ -113,10 +113,10 @@
 }
 
 .p-title {
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 1px;
   margin: 0;
 }
 
