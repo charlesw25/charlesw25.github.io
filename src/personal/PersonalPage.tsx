@@ -4,10 +4,10 @@ import { fetchMeta, fetchReviews, Meta, Review, ReviewType } from './api';
 import { projects } from './projects';
 import './personal.css';
 
-const TABS: { type: ReviewType; dir: string }[] = [
-  { type: 'book', dir: 'books' },
-  { type: 'movie', dir: 'movies' },
-  { type: 'game', dir: 'games' },
+const TABS: { type: ReviewType; label: string }[] = [
+  { type: 'book', label: 'books' },
+  { type: 'movie', label: 'movies' },
+  { type: 'game', label: 'games' },
 ];
 
 const REVIEW_PREVIEW_CHARS = 280;
@@ -19,20 +19,6 @@ interface TabState {
   loadingMore?: boolean;
 }
 
-function Prompt({ path = '~/personal', children }: { path?: string; children?: React.ReactNode }) {
-  return (
-    <div className="term-line">
-      <span className="term-prompt">charles@wood:{path}$</span> {children}
-    </div>
-  );
-}
-
-// Two slots per star so half stars show: 4.5 -> [#########.] 4.5/5
-function ratingBar(rating: number) {
-  const filled = Math.min(10, Math.max(0, Math.round(rating * 2)));
-  return `[${'#'.repeat(filled)}${'.'.repeat(10 - filled)}] ${rating}/5`;
-}
-
 function ReviewEntry({ review }: { review: Review }) {
   const [expanded, setExpanded] = useState(false);
   const text = review.review || '';
@@ -40,25 +26,25 @@ function ReviewEntry({ review }: { review: Review }) {
   const shown = isLong && !expanded ? `${text.slice(0, REVIEW_PREVIEW_CHARS).trimEnd()}...` : text;
 
   return (
-    <li className="term-entry">
-      <div className="term-title">
+    <li className="p-entry">
+      <h3 className="p-title">
         {review.url ? (
           <a href={review.url} target="_blank" rel="noopener noreferrer">{review.title}</a>
         ) : review.title}
-        {review.year && <span className="term-dim"> ({review.year})</span>}
-      </div>
-      {review.creator && <div className="term-dim">by {review.creator}</div>}
+        {review.year && <span className="p-dim"> {review.year}</span>}
+      </h3>
+      {review.creator && <div className="p-dim">{review.creator}</div>}
       {(review.rating !== null || review.date) && (
-        <div className="term-dim">
-          {review.rating !== null && <span aria-label={`rated ${review.rating} out of 5`}>{ratingBar(review.rating)}</span>}
-          {review.rating !== null && review.date && ' | '}
-          {review.date}
+        <div className="p-dim">
+          {review.rating !== null && <span aria-label={`rated ${review.rating} out of 5`}>★ {review.rating}</span>}
+          {review.rating !== null && review.date && <span className="p-sep" />}
+          {review.date && review.date.replace(/-/g, '.')}
         </div>
       )}
-      {shown && <p className="term-review">{shown}</p>}
+      {shown && <p className="p-review">{shown}</p>}
       {isLong && (
-        <button className="term-button" onClick={() => setExpanded(!expanded)}>
-          {expanded ? '[- less]' : '[+ more]'}
+        <button className="p-button" onClick={() => setExpanded(!expanded)}>
+          {expanded ? 'less' : 'more'}
         </button>
       )}
     </li>
@@ -70,7 +56,6 @@ function Reviews() {
   const [tabs, setTabs] = useState<Partial<Record<ReviewType, TabState>>>({});
   const [meta, setMeta] = useState<Meta | null>(null);
   const current = tabs[active];
-  const activeDir = TABS.find((t) => t.type === active)!.dir;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -119,41 +104,35 @@ function Reviews() {
   }
 
   return (
-    <section>
-      <Prompt>ls reviews/</Prompt>
-      <div className="term-dirs" role="tablist">
-        {TABS.map(({ type, dir }) => (
+    <section className="p-section">
+      <div className="p-tabs" role="tablist">
+        {TABS.map(({ type, label }) => (
           <button
             key={type}
             role="tab"
             aria-selected={active === type}
-            className={`term-button term-dir${active === type ? ' term-dir-active' : ''}`}
+            className={`p-button p-tab${active === type ? ' p-tab-active' : ''}`}
             onClick={() => setActive(type)}
           >
-            {dir}/
-            {meta?.counts[type] !== undefined && <span className="term-dim"> {meta.counts[type]}</span>}
+            {label}
+            {meta?.counts[type] !== undefined && <span className="p-count">{meta.counts[type]}</span>}
           </button>
         ))}
       </div>
 
-      <Prompt>{`cat reviews/${activeDir}/*`}</Prompt>
-      {current?.status === 'error' && <div className="term-line">cat: reviews/{activeDir}: connection refused</div>}
-      {current?.status === 'loading' && <div className="term-line term-dim">reading...</div>}
-      {current?.status === 'ready' && current.items.length === 0 && (
-        <div className="term-line">{`cat: reviews/${activeDir}/*: no such file or directory`}</div>
-      )}
+      {current?.status === 'error' && <p className="p-dim">couldn't load reviews right now.</p>}
+      {current?.status === 'loading' && <p className="p-dim">loading...</p>}
+      {current?.status === 'ready' && current.items.length === 0 && <p className="p-dim">nothing here yet.</p>}
 
       {current && current.items.length > 0 && (
-        <ul className="term-list">
+        <ul className="p-list">
           {current.items.map((review) => <ReviewEntry key={review.id} review={review} />)}
         </ul>
       )}
 
       {current && current.items.length > 0 && current.items.length < current.total && (
-        <button className="term-button term-more" onClick={loadMore} disabled={current.loadingMore}>
-          {current.loadingMore
-            ? 'reading...'
-            : `-- more (${current.items.length}/${current.total}) --`}
+        <button className="p-button p-more" onClick={loadMore} disabled={current.loadingMore}>
+          {current.loadingMore ? 'loading...' : `more (${current.items.length}/${current.total})`}
         </button>
       )}
     </section>
@@ -165,18 +144,18 @@ function Projects() {
     return null;
   }
   return (
-    <section>
-      <Prompt>cat projects.txt</Prompt>
-      <ul className="term-list">
+    <section className="p-section">
+      <h2 className="p-heading">projects</h2>
+      <ul className="p-list">
         {projects.map((project) => (
-          <li key={project.name} className="term-entry">
-            <div className="term-title">
+          <li key={project.name} className="p-entry">
+            <h3 className="p-title">
               {project.url ? (
                 <a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a>
               ) : project.name}
-            </div>
-            <p className="term-review">{project.description}</p>
-            {project.tech && <div className="term-dim">{project.tech.join(' / ')}</div>}
+            </h3>
+            <p className="p-review">{project.description}</p>
+            {project.tech && <div className="p-dim">{project.tech.join(' / ')}</div>}
           </li>
         ))}
       </ul>
@@ -191,15 +170,11 @@ function PersonalPage() {
   });
 
   return (
-    <main className="terminal">
-      <Prompt path="~">cd personal</Prompt>
-      <h1 className="term-banner">personal</h1>
+    <main className="personal">
+      <Link to="/" className="p-back">&lt; back</Link>
+      <h1 className="p-banner">personal</h1>
       <Projects />
       <Reviews />
-      <Prompt>
-        <Link to="/" className="term-link">cd ..</Link>
-        <span className="term-cursor" aria-hidden="true" />
-      </Prompt>
     </main>
   );
 }

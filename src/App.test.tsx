@@ -11,10 +11,9 @@ function renderAt(path: string) {
   );
 }
 
-test('home page hides a link to the personal page', () => {
+test('the dog on the home page links to the personal page', () => {
   renderAt('/');
-  expect(screen.queryByText('Personal')).not.toBeInTheDocument();
-  expect(screen.getByLabelText('personal')).toHaveAttribute('href', '/personal');
+  expect(screen.getByRole('link', { name: 'personal' })).toHaveAttribute('href', '/personal');
 });
 
 test('personal page renders review tabs', async () => {
@@ -22,5 +21,5 @@ test('personal page renders review tabs', async () => {
   expect(screen.getByRole('heading', { name: 'personal' })).toBeInTheDocument();
   expect(screen.getByRole('tab', { name: /books/ })).toHaveAttribute('aria-selected', 'true');
   // No API URL is configured under test, so the request fails and the page says so.
-  expect(await screen.findByText('cat: reviews/books: connection refused')).toBeInTheDocument();
+  expect(await screen.findByText("couldn't load reviews right now.")).toBeInTheDocument();
 });

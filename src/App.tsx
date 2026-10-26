@@ -29,9 +29,7 @@ function About() {
         as well as reduce manual overhead.
       </p>
       <p className="about-text about-tech">
-        Some technologies I work with include Python, AWS, PostgreSQL, React, and Redis
-        {/* Easter egg: the final period links to the personal page */}
-        <Link to="/personal" className="secret-link" aria-label="personal">.</Link>
+        Some technologies I work with include Python, AWS, PostgreSQL, React, and Redis.
       </p>
     </section>
   );
@@ -41,7 +39,10 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header inter-main">
-        <h1>charles wood</h1>
+        <h1>
+          charles wood{' '}
+          <Link to="/personal" className="dog-link" aria-label="personal">🐕</Link>
+        </h1>
         <h4>Software Engineer based in NYC</h4>
         <Links />
         <About />
