@@ -26,7 +26,8 @@ export interface Meta {
   last_synced: string | null;
 }
 
-// Set at build time, e.g. REACT_APP_API_URL=https://api.example.com in .env.production.local
+// Set at build time, e.g. REACT_APP_API_URL=https://api.example.com in .env.production.local.
+// The API itself lives in https://github.com/charlesw25/cw-site-api
 export const API_URL = (process.env.REACT_APP_API_URL || '').replace(/\/$/, '');
 
 async function get<T>(path: string, signal?: AbortSignal): Promise<T> {
