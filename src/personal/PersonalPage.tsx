@@ -4,10 +4,10 @@ import { fetchMeta, fetchReviews, Meta, Review, ReviewType } from './api';
 import { projects } from './projects';
 import './personal.css';
 
-const TABS: { type: ReviewType; label: string }[] = [
-  { type: 'book', label: 'books' },
-  { type: 'movie', label: 'movies' },
-  { type: 'game', label: 'games' },
+const TABS: { type: ReviewType; dir: string }[] = [
+  { type: 'book', dir: 'books' },
+  { type: 'movie', dir: 'movies' },
+  { type: 'game', dir: 'games' },
 ];
 
 const REVIEW_PREVIEW_CHARS = 280;
@@ -19,61 +19,48 @@ interface TabState {
   loadingMore?: boolean;
 }
 
-function formatDate(iso: string) {
-  return new Date(`${iso}T00:00:00`).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
+function Prompt({ path = '~/personal', children }: { path?: string; children?: React.ReactNode }) {
+  return (
+    <div className="term-line">
+      <span className="term-prompt">charles@wood:{path}$</span> {children}
+    </div>
+  );
 }
 
-function ReviewCard({ review }: { review: Review }) {
+// Two slots per star so half stars show: 4.5 -> [#########.] 4.5/5
+function ratingBar(rating: number) {
+  const filled = Math.min(10, Math.max(0, Math.round(rating * 2)));
+  return `[${'#'.repeat(filled)}${'.'.repeat(10 - filled)}] ${rating}/5`;
+}
+
+function ReviewEntry({ review }: { review: Review }) {
   const [expanded, setExpanded] = useState(false);
-  const [coverFailed, setCoverFailed] = useState(false);
   const text = review.review || '';
   const isLong = text.length > REVIEW_PREVIEW_CHARS;
-
-  const title = (
-    <>
-      {review.title}
-      {review.year && <span className="review-year"> ({review.year})</span>}
-    </>
-  );
+  const shown = isLong && !expanded ? `${text.slice(0, REVIEW_PREVIEW_CHARS).trimEnd()}...` : text;
 
   return (
-    <li className="review-card">
-      {review.cover_url && !coverFailed ? (
-        <img
-          className="review-cover"
-          src={review.cover_url}
-          alt=""
-          loading="lazy"
-          onError={() => setCoverFailed(true)}
-        />
-      ) : (
-        <div className="review-cover review-cover-empty" aria-hidden="true" />
-      )}
-      <div className="review-body">
-        <h3 className="review-title">
-          {review.url ? (
-            <a href={review.url} target="_blank" rel="noopener noreferrer">{title}</a>
-          ) : title}
-        </h3>
-        {review.creator && <p className="review-creator">{review.creator}</p>}
-        <p className="review-meta">
-          {review.rating !== null && <span aria-label={`rated ${review.rating} out of 5`}>★ {review.rating}</span>}
-          {review.rating !== null && review.date && ' · '}
-          {review.date && <span>{formatDate(review.date)}</span>}
-        </p>
-        {text && (
-          <p className={`review-text${isLong && !expanded ? ' review-text-clamped' : ''}`}>{text}</p>
-        )}
-        {isLong && (
-          <button className="text-button" onClick={() => setExpanded(!expanded)}>
-            {expanded ? 'show less' : 'read more'}
-          </button>
-        )}
+    <li className="term-entry">
+      <div className="term-title">
+        {review.url ? (
+          <a href={review.url} target="_blank" rel="noopener noreferrer">{review.title}</a>
+        ) : review.title}
+        {review.year && <span className="term-dim"> ({review.year})</span>}
       </div>
+      {review.creator && <div className="term-dim">by {review.creator}</div>}
+      {(review.rating !== null || review.date) && (
+        <div className="term-dim">
+          {review.rating !== null && <span aria-label={`rated ${review.rating} out of 5`}>{ratingBar(review.rating)}</span>}
+          {review.rating !== null && review.date && ' | '}
+          {review.date}
+        </div>
+      )}
+      {shown && <p className="term-review">{shown}</p>}
+      {isLong && (
+        <button className="term-button" onClick={() => setExpanded(!expanded)}>
+          {expanded ? '[- less]' : '[+ more]'}
+        </button>
+      )}
     </li>
   );
 }
@@ -83,6 +70,7 @@ function Reviews() {
   const [tabs, setTabs] = useState<Partial<Record<ReviewType, TabState>>>({});
   const [meta, setMeta] = useState<Meta | null>(null);
   const current = tabs[active];
+  const activeDir = TABS.find((t) => t.type === active)!.dir;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -131,36 +119,41 @@ function Reviews() {
   }
 
   return (
-    <section className="personal-section">
-      <h2>reviews</h2>
-      <div className="tabs" role="tablist">
-        {TABS.map(({ type, label }) => (
+    <section>
+      <Prompt>ls reviews/</Prompt>
+      <div className="term-dirs" role="tablist">
+        {TABS.map(({ type, dir }) => (
           <button
             key={type}
             role="tab"
             aria-selected={active === type}
-            className={`tab${active === type ? ' tab-active' : ''}`}
+            className={`term-button term-dir${active === type ? ' term-dir-active' : ''}`}
             onClick={() => setActive(type)}
           >
-            {label}
-            {meta?.counts[type] !== undefined && <span className="tab-count">{meta.counts[type]}</span>}
+            {dir}/
+            {meta?.counts[type] !== undefined && <span className="term-dim"> {meta.counts[type]}</span>}
           </button>
         ))}
       </div>
 
-      {current?.status === 'error' && <p className="personal-note">couldn't load reviews right now.</p>}
-      {current?.status === 'loading' && <p className="personal-note">loading…</p>}
-      {current?.status === 'ready' && current.items.length === 0 && <p className="personal-note">nothing here yet.</p>}
+      <Prompt>{`cat reviews/${activeDir}/*`}</Prompt>
+      {current?.status === 'error' && <div className="term-line">cat: reviews/{activeDir}: connection refused</div>}
+      {current?.status === 'loading' && <div className="term-line term-dim">reading...</div>}
+      {current?.status === 'ready' && current.items.length === 0 && (
+        <div className="term-line">{`cat: reviews/${activeDir}/*: no such file or directory`}</div>
+      )}
 
       {current && current.items.length > 0 && (
-        <ul className="review-list">
-          {current.items.map((review) => <ReviewCard key={review.id} review={review} />)}
+        <ul className="term-list">
+          {current.items.map((review) => <ReviewEntry key={review.id} review={review} />)}
         </ul>
       )}
 
       {current && current.items.length > 0 && current.items.length < current.total && (
-        <button className="text-button load-more" onClick={loadMore} disabled={current.loadingMore}>
-          {current.loadingMore ? 'loading…' : 'load more'}
+        <button className="term-button term-more" onClick={loadMore} disabled={current.loadingMore}>
+          {current.loadingMore
+            ? 'reading...'
+            : `-- more (${current.items.length}/${current.total}) --`}
         </button>
       )}
     </section>
@@ -172,18 +165,18 @@ function Projects() {
     return null;
   }
   return (
-    <section className="personal-section">
-      <h2>projects</h2>
-      <ul className="project-list">
+    <section>
+      <Prompt>cat projects.txt</Prompt>
+      <ul className="term-list">
         {projects.map((project) => (
-          <li key={project.name} className="project">
-            <h3 className="review-title">
+          <li key={project.name} className="term-entry">
+            <div className="term-title">
               {project.url ? (
                 <a href={project.url} target="_blank" rel="noopener noreferrer">{project.name}</a>
               ) : project.name}
-            </h3>
-            <p className="review-text">{project.description}</p>
-            {project.tech && <p className="review-meta">{project.tech.join(' · ')}</p>}
+            </div>
+            <p className="term-review">{project.description}</p>
+            {project.tech && <div className="term-dim">{project.tech.join(' / ')}</div>}
           </li>
         ))}
       </ul>
@@ -192,15 +185,22 @@ function Projects() {
 }
 
 function PersonalPage() {
+  // App sets the home page's background on every render; this page is pure black.
+  useEffect(() => {
+    document.body.style.backgroundColor = '#000000';
+  });
+
   return (
-    <div className="App">
-      <main className="App-header inter-main personal-page">
-        <Link to="/" className="back-link">← charles wood</Link>
-        <h1>personal</h1>
-        <Projects />
-        <Reviews />
-      </main>
-    </div>
+    <main className="terminal">
+      <Prompt path="~">cd personal</Prompt>
+      <h1 className="term-banner">personal</h1>
+      <Projects />
+      <Reviews />
+      <Prompt>
+        <Link to="/" className="term-link">cd ..</Link>
+        <span className="term-cursor" aria-hidden="true" />
+      </Prompt>
+    </main>
   );
 }
 

@@ -13,9 +13,6 @@ function Links() {
         <li>
           <a href="https://github.com/charlesw25" target="_blank" rel="noopener noreferrer">GitHub</a>
         </li>
-        <li>
-          <Link to="/personal">Personal</Link>
-        </li>
       </ul>
     </nav>
   )
@@ -32,7 +29,9 @@ function About() {
         as well as reduce manual overhead.
       </p>
       <p className="about-text about-tech">
-        Some technologies I work with include Python, AWS, PostgreSQL, React, and Redis.
+        Some technologies I work with include Python, AWS, PostgreSQL, React, and Redis
+        {/* Easter egg: the final period links to the personal page */}
+        <Link to="/personal" className="secret-link" aria-label="personal">.</Link>
       </p>
     </section>
   );
