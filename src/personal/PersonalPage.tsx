@@ -115,14 +115,14 @@ function Reviews() {
             onClick={() => setActive(type)}
           >
             {label}
-            {meta?.counts[type] !== undefined && <span className="p-count">{meta.counts[type]}</span>}
+            {meta?.counts[type] !== undefined && <span className="p-count">({meta.counts[type]})</span>}
           </button>
         ))}
       </div>
 
       {current?.status === 'error' && <p className="p-dim">couldn't load reviews right now.</p>}
       {current?.status === 'loading' && <p className="p-dim">loading...</p>}
-      {current?.status === 'ready' && current.items.length === 0 && <p className="p-dim">nothing here yet.</p>}
+      {current?.status === 'ready' && current.items.length === 0 && <p className="p-dim">n/a</p>}
 
       {current && current.items.length > 0 && (
         <ul className="p-list">
