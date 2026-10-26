@@ -1,9 +1,25 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+function renderAt(path: string) {
+  return render(
+    <MemoryRouter initialEntries={[path]}>
+      <App />
+    </MemoryRouter>
+  );
+}
+
+test('home page links to the personal page', () => {
+  renderAt('/');
+  expect(screen.getByText('Personal')).toHaveAttribute('href', '/personal');
+});
+
+test('personal page renders review tabs', async () => {
+  renderAt('/personal');
+  expect(screen.getByRole('heading', { name: 'personal' })).toBeInTheDocument();
+  expect(screen.getByRole('tab', { name: /books/ })).toHaveAttribute('aria-selected', 'true');
+  // No API URL is configured under test, so the request fails and the page says so.
+  expect(await screen.findByText("couldn't load reviews right now.")).toBeInTheDocument();
 });

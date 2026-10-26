@@ -1,0 +1,41 @@
+# Two containers from one image:
+#   api  - serves the read-only API; mounts the data folder read-only
+#   sync - pulls sources on an interval and writes the SQLite file
+#
+# The data folder must be writable by uid 10001:  sudo chown -R 10001 ./data
+
+services:
+  api:
+    build: .
+    env_file: .env
+    volumes:
+      - ./data:/data:ro
+    # Only reachable from the host, i.e. through the reverse proxy.
+    ports:
+      - "127.0.0.1:8001:8000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 100
+    restart: unless-stopped
+
+  sync:
+    build: .
+    env_file: .env
+    command: ["python", "-m", "app.sync", "--loop"]
+    volumes:
+      - ./data:/data
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 0.5
+    restart: unless-stopped

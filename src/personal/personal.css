@@ -1,0 +1,148 @@
+.personal-page {
+  padding-bottom: 5rem;
+}
+
+.personal-page h1 {
+  margin-bottom: 0;
+}
+
+.back-link {
+  font-size: 1rem;
+  color: #777777 !important;
+}
+
+.personal-section {
+  margin-top: 2.5rem;
+  width: 100%;
+  max-width: 640px;
+}
+
+.personal-section h2 {
+  font-size: 1.1rem;
+  color: #777777;
+  margin: 0 0 1rem 0;
+}
+
+.personal-note {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #777777;
+}
+
+.tabs {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab,
+.text-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.tab {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #777777;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.25rem;
+}
+
+.tab:hover,
+.text-button:hover {
+  opacity: 0.6;
+}
+
+.tab-active {
+  color: #e2e2e2;
+  border-bottom-color: #e2e2e2;
+}
+
+.tab-count {
+  margin-left: 0.4rem;
+  font-weight: 400;
+  color: #555555;
+}
+
+.text-button {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #aaaaaa;
+  text-decoration: underline;
+}
+
+.text-button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.load-more {
+  margin-top: 1rem;
+}
+
+.App .review-list,
+.App .project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.App .review-card {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+
+.review-cover {
+  flex: none;
+  width: 64px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 3px;
+  background: #1c1c1c;
+}
+
+.review-body {
+  min-width: 0;
+}
+
+.review-title {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #e2e2e2;
+}
+
+.review-year {
+  font-weight: 400;
+  color: #777777;
+}
+
+.review-creator,
+.review-meta {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #777777;
+  margin: 0.2rem 0 0 0;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #aaaaaa;
+  line-height: 1.7;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  margin: 0.6rem 0 0.25rem 0;
+}
+
+.review-text-clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import PersonalPage from './personal/PersonalPage';
 
 function Links() {
   return (
@@ -10,6 +12,9 @@ function Links() {
         </li>
         <li>
           <a href="https://github.com/charlesw25" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+        <li>
+          <Link to="/personal">Personal</Link>
         </li>
       </ul>
     </nav>
@@ -33,8 +38,7 @@ function About() {
   );
 }
 
-function App() {
-  document.body.style.backgroundColor = "#0f0f0f"
+function Home() {
   return (
     <div className="App">
       <header className="App-header inter-main">
@@ -44,6 +48,17 @@ function App() {
         <About />
       </header>
     </div>
+  );
+}
+
+function App() {
+  document.body.style.backgroundColor = "#0f0f0f"
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/personal" element={<PersonalPage />} />
+      <Route path="*" element={<Home />} />
+    </Routes>
   );
 }
 
