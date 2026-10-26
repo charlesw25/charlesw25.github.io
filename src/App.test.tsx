@@ -11,7 +11,7 @@ function renderAt(path: string) {
   );
 }
 
-test('the dog on the home page links to the personal page', () => {
+test('the period after the name links to the personal page', () => {
   renderAt('/');
   expect(screen.getByRole('link', { name: 'personal' })).toHaveAttribute('href', '/personal');
 });

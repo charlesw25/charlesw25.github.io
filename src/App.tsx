@@ -40,8 +40,7 @@ function Home() {
     <div className="App">
       <header className="App-header inter-main">
         <h1>
-          charles wood{' '}
-          <Link to="/personal" className="dog-link" aria-label="personal">🐕</Link>
+          charles wood<Link to="/personal" className="period-link" aria-label="personal">.</Link>
         </h1>
         <h4>Software Engineer based in NYC</h4>
         <Links />
