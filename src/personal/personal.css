@@ -1,0 +1,139 @@
+.personal {
+  --p-fg: #ffffff;
+  --p-dim: #8a8a8a;
+  --p-bg: #000000;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: 720px;
+  padding: 3rem 1rem 5rem;
+  margin: 0 auto;
+  background: var(--p-bg);
+  color: var(--p-fg);
+  font-family: "DotGothic16", "Courier New", monospace;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.personal a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.personal a:hover,
+.p-button:hover {
+  opacity: 0.6;
+}
+
+.p-back {
+  color: var(--p-dim) !important;
+  text-transform: uppercase;
+}
+
+.p-banner {
+  font-family: inherit;
+  font-size: 2.25rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 1.5rem 0 0;
+}
+
+.p-section {
+  margin-top: 2.5rem;
+}
+
+.p-heading {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--p-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 1rem;
+}
+
+.p-dim {
+  color: var(--p-dim);
+}
+
+.p-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.p-button:disabled {
+  cursor: default;
+  color: var(--p-dim);
+}
+
+.p-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.p-tab {
+  color: var(--p-dim);
+  padding: 0.1rem 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.p-tab-active,
+.p-tab-active:hover {
+  background: var(--p-fg);
+  color: var(--p-bg);
+  opacity: 1;
+}
+
+.p-count {
+  margin-left: 0.5rem;
+}
+
+.p-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.p-entry {
+  padding: 1rem 0;
+  border-bottom: 1px solid #222222;
+}
+
+.p-entry:last-child {
+  border-bottom: none;
+}
+
+.p-title {
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.p-sep {
+  margin: 0 0.6rem;
+}
+
+.p-sep::before {
+  content: "/";
+}
+
+.p-review {
+  margin: 0.6rem 0 0.25rem;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.p-more {
+  margin-top: 1rem;
+}

@@ -79,3 +79,7 @@
   font-style: italic;
   color: #666666;
 }
+
+.App a.period-link:hover {
+  text-decoration: none;
+}
