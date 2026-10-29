@@ -19,6 +19,13 @@ interface TabState {
   loadingMore?: boolean;
 }
 
+// Once a tab's list has loaded, its count comes from that response rather than /meta,
+// since the two are cached separately and can disagree. Zero shows no count, as /meta omits it.
+function TabCount({ tab, metaCount }: { tab?: TabState; metaCount?: number }) {
+  const count = tab?.status === 'ready' ? tab.total : metaCount;
+  return count ? <span className="p-count">({count})</span> : null;
+}
+
 function ReviewEntry({ review }: { review: Review }) {
   const [expanded, setExpanded] = useState(false);
   const text = review.review || '';
@@ -115,7 +122,7 @@ function Reviews() {
             onClick={() => setActive(type)}
           >
             {label}
-            {meta?.counts[type] !== undefined && <span className="p-count">({meta.counts[type]})</span>}
+            <TabCount tab={tabs[type]} metaCount={meta?.counts[type]} />
           </button>
         ))}
       </div>
