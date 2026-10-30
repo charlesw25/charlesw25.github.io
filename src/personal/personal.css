@@ -1,3 +1,10 @@
+/* Long tabs (books, movies) scroll and short ones (games, "loading...") don't. Where scrollbars take up
+   width (desktop Chrome/Brave, Firefox on Windows/Linux), the scrollbar appearing and disappearing
+   re-centered the column ~7px sideways on tab switches, so keep its space reserved on this page. */
+html:has(.personal) {
+  scrollbar-gutter: stable;
+}
+
 .personal {
   --p-fg: #ffffff;
   --p-dim: #8a8a8a;
