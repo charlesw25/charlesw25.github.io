@@ -171,10 +171,15 @@ function Projects() {
 }
 
 function PersonalPage() {
-  // App sets the home page's background on every render; this page is pure black.
+  // This page is pure black. App sets the home page's background once, on its first render, not on
+  // route changes, so put back whatever was there when leaving.
   useEffect(() => {
+    const previous = document.body.style.backgroundColor;
     document.body.style.backgroundColor = '#000000';
-  });
+    return () => {
+      document.body.style.backgroundColor = previous;
+    };
+  }, []);
 
   return (
     <main className="personal">
