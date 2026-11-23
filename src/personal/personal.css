@@ -33,11 +33,6 @@ html:has(.personal) {
   opacity: 0.6;
 }
 
-.p-back {
-  color: var(--p-dim) !important;
-  text-transform: uppercase;
-}
-
 .p-banner {
   font-family: inherit;
   font-size: 32px;

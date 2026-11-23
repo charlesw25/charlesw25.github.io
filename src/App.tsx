@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import PersonalPage from './personal/PersonalPage';
 
@@ -40,7 +40,7 @@ function Home() {
     <div className="App">
       <header className="App-header inter-main">
         <h1>
-          charles wood<Link to="/personal" className="period-link" aria-label="personal">.</Link>
+          charles wood.
         </h1>
         <h4>Software Engineer based in NYC</h4>
         <Links />

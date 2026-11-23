@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchMeta, fetchReviews, Meta, Review, ReviewType } from './api';
 import { projects } from './projects';
 import './personal.css';
@@ -183,7 +182,6 @@ function PersonalPage() {
 
   return (
     <main className="personal">
-      <Link to="/" className="p-back">&lt; back</Link>
       <h1 className="p-banner">personal</h1>
       <Projects />
       <Reviews />
